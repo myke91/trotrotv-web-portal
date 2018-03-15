@@ -9,10 +9,10 @@
                 <a href="/" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Dashboard</a>
             </li>
             <li>
-                <a href="/cars" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Cars Info</a>
+                <a href="/vehicles" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Vehicles</a>
             </li>
             <li>
-                <a href="/checks" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Car Checks</a>
+                <a href="/reports" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Reports</a>
             </li>
 
         </ul>

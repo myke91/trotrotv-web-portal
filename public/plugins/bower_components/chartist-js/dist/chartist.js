@@ -2229,7 +2229,7 @@ var Chartist = {
   });
 
   /**
-   * This method checks for support of a given SVG feature like Extensibility, SVG-animation or the like. Check http://www.w3.org/TR/SVG11/feature for a detailed list.
+   * This method reports for support of a given SVG feature like Extensibility, SVG-animation or the like. Check http://www.w3.org/TR/SVG11/feature for a detailed list.
    *
    * @memberof Chartist.Svg
    * @param {String} feature The SVG 1.1 feature that should be checked for support.

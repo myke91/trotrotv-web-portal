@@ -695,7 +695,7 @@ jQuery.Event.prototype = {
 	}
 };
 
-// Create mouseenter/leave events using mouseover/out and event-time checks
+// Create mouseenter/leave events using mouseover/out and event-time reports
 // Support: Chrome 15+
 jQuery.each({
 	mouseenter: "mouseover",

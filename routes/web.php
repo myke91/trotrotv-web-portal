@@ -15,10 +15,10 @@ Route::get('/', function () {
     return view('dashboard');
 });
 
-Route::get('cars', function () {
-    return view('cars.add_cars');
+Route::get('vehicles', function () {
+    return view('vehicles.vehicles');
 });
 
-Route::get('checks', function () {
-    return view('checks.checks');
+Route::get('reports', function () {
+    return view('reports.reports');
 });
