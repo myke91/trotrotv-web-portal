@@ -9,7 +9,16 @@
                 <a href="/" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Dashboard</a>
             </li>
             <li>
+                <a href="/brands" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Brands</a>
+            </li>
+            <li>
                 <a href="/vehicles" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Vehicles</a>
+            </li>
+            <li>
+                <a href="/stations" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Stations</a>
+            </li>
+            <li>
+                <a href="/survey" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Survey</a>
             </li>
             <li>
                 <a href="/reports" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Reports</a>

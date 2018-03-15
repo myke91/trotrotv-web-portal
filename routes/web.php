@@ -22,3 +22,12 @@ Route::get('vehicles', function () {
 Route::get('reports', function () {
     return view('reports.reports');
 });
+Route::get('brands', function () {
+    return view('brands.brands');
+});
+Route::get('stations', function () {
+    return view('stations.stations');
+});
+Route::get('survey', function () {
+    return view('survey.survey');
+});
