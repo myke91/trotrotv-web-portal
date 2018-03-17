@@ -15,19 +15,14 @@ Route::get('/', function () {
     return view('dashboard');
 });
 
-Route::get('vehicles', function () {
-    return view('vehicles.vehicles');
-});
+Route::get('/stations',['as'=>'stations','uses'=>'StationController@getStations']);
+Route::get('/brands',['as'=>'brands','uses'=>'BrandController@getBrands']);
+Route::get('/questions',['as'=>'stations','uses'=>'QuestionController@getQuestions']);
+Route::get('/survey',['as'=>'survey','uses'=>'SurveyController@getSurvey']);
+Route::get('/reports',['as'=>'reports','uses'=>'ReportController@getReports']);
+Route::get('/vehicles',['as'=>'vehicles','uses'=>'VehicleController@getVehicles']);
 
-Route::get('reports', function () {
-    return view('reports.reports');
-});
-Route::get('brands', function () {
-    return view('brands.brands');
-});
-Route::get('stations', function () {
-    return view('stations.stations');
-});
-Route::get('survey', function () {
-    return view('survey.survey');
-});
+Route::get('/show/stationsInfo',['as'=>'showStationInfo','uses'=>'StationController@showStationInformation']);
+
+
+Route::post('/poststations',['as'=>'postStation','uses'=>'stationController@createStation']);
