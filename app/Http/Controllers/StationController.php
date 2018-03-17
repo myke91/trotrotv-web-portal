@@ -48,7 +48,7 @@ class StationController extends Controller
     {
         if($request->ajax())
         {
-            MyClass::destroy($request->station_id);
+            Station::destroy($request->station_id);
         }
     }
 }

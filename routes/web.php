@@ -23,6 +23,13 @@ Route::get('/reports',['as'=>'reports','uses'=>'ReportController@getReports']);
 Route::get('/vehicles',['as'=>'vehicles','uses'=>'VehicleController@getVehicles']);
 
 Route::get('/stationsInfo',['as'=>'showStationInfo','uses'=>'StationController@showStationInformation']);
+Route::get('/editStation',['as'=>'editStation','uses'=>'StationController@editStations']);
+Route::post('/poststations',['as'=>'postStation','uses'=>'StationController@createStation']);
+Route::post('/updatestations',['as'=>'updateStation','uses'=>'StationController@updateStations']);
+Route::post('/deletestations',['as'=>'deleteStation','uses'=>'StationController@deleteStation']);
 
-
-Route::post('/poststations',['as'=>'postStation','uses'=>'stationController@createStation']);
+Route::get('/brandsInfo',['as'=>'showBrandInfo','uses'=>'BrandController@showBrandInformation']);
+Route::get('/editBrands',['as'=>'editBrand','uses'=>'BrandController@editBrand']);
+Route::post('/postBrands',['as'=>'postBrand','uses'=>'BrandController@createBrand']);
+Route::post('/updateBrands',['as'=>'updateBrand','uses'=>'BrandController@updateBrand']);
+Route::post('/deleteBrands',['as'=>'deleteBrand','uses'=>'BrandController@deleteBrand']);

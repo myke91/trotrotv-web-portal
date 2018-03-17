@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('content')
+    @include('stations.editStationInfo')
     <div class="row">
         <div class="col-lg-12">
             <h2 class="page-header"><i class="fa fa-file-text-o"></i>TrotroTv</h2>
@@ -55,15 +56,12 @@
     <script type="text/javascript">
        // alert("Hello! I am an alert box!!");
 showStationInfo();
-
      $('#frm-create-station').on('submit', function (e) {
               e.preventDefault();
                var data = $(this).serialize();
               var url = $(this).attr('action');
-             $.post(url, data,
-                       function (data) {
-                             showStationInfo(data.station_name);
-                             $(this).trigger('reset');
+             $.post(url, data,function (data) {
+                 showStationInfo(data.station_name);
                            swal('Trotro TV',
                                       'Station '+data.station_name+' saved successfully',
                                      'success');
@@ -81,7 +79,7 @@ showStationInfo();
                                response,
                               'error');
                   });
-
+         $(this).trigger('reset');
              });
   function showStationInfo()
   {
@@ -91,5 +89,62 @@ showStationInfo();
               $('#add-class-info').empty().append(data);
          });
    }
+       $(document).on('click', '.station-edit', function (e) {
+           $('#station-show').modal('show');
+           var station_id = $(this).val();
+           $.get("{{route('editStation')}}", {station_id: station_id}, function (data) {
+               console.log(data)
+
+               $('#station_id_edit').val(data.station_id);
+               $('#station-name').val(data.station_name);
+               $('#location-edit').val(data.location);
+           });
+       });
+       $('.btn-update-station').on('click', function (e) {
+           e.preventDefault();
+           var data = $('#frm-update-station').serialize();
+           $.post("{{route('updateStation')}}", data, function (data) {
+               showStationInfo(data.station_name);
+               $('#station-show').modal('hide');
+               swal('Trotro TV',
+                   'Station '+data.station_name+' updated successfully',
+                   'success');
+
+           }).fail(function (data) {
+               console.log(data);
+               var responseJSON = data.responseJSON;
+               var response = '';
+               for (var key in responseJSON) {
+                   if (responseJSON.hasOwnProperty(key)) {
+                       response += "\n" + responseJSON[key] + "\n";
+                   }
+               }
+               swal('Trotro TV',
+                   response,
+                   'error');
+           });
+       })
+       $(document).on('click', '.del-station', function (e) {
+           var station_id = $(this).val();
+           $.post("{{route('deleteStation')}}", {station_id: station_id}, function (data) {
+               showStationInfo(data.station_name);
+               swal('Trotro TV',
+                   'Selected Station deleted successfully',
+                   'success');
+
+           }).fail(function (data) {
+               console.log(data);
+               var responseJSON = data.responseJSON;
+               var response = '';
+               for (var key in responseJSON) {
+                   if (responseJSON.hasOwnProperty(key)) {
+                       response += "\n" + responseJSON[key] + "\n";
+                   }
+               }
+               swal('Trotro TV',
+                   response,
+                   'error');
+           })
+       })
     </script>
     @endsection
