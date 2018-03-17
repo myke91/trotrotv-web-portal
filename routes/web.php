@@ -17,12 +17,12 @@ Route::get('/', function () {
 
 Route::get('/stations',['as'=>'stations','uses'=>'StationController@getStations']);
 Route::get('/brands',['as'=>'brands','uses'=>'BrandController@getBrands']);
-Route::get('/questions',['as'=>'stations','uses'=>'QuestionController@getQuestions']);
+Route::get('/questions',['as'=>'questions','uses'=>'QuestionController@getQuestions']);
 Route::get('/survey',['as'=>'survey','uses'=>'SurveyController@getSurvey']);
 Route::get('/reports',['as'=>'reports','uses'=>'ReportController@getReports']);
 Route::get('/vehicles',['as'=>'vehicles','uses'=>'VehicleController@getVehicles']);
 
-Route::get('/show/stationsInfo',['as'=>'showStationInfo','uses'=>'StationController@showStationInformation']);
+Route::get('/stationsInfo',['as'=>'showStationInfo','uses'=>'StationController@showStationInformation']);
 
 
 Route::post('/poststations',['as'=>'postStation','uses'=>'stationController@createStation']);

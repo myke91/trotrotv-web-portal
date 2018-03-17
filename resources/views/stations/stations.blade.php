@@ -1,95 +1,95 @@
 @extends('layouts.master')
 @section('content')
-    <div class="row bg-title">
-        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-            <h4 class="page-title">Stations</h4> </div>
-        <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="page-header"><i class="fa fa-file-text-o"></i>TrotroTv</h2>
             <ol class="breadcrumb">
-                <li><a href="#">Dashboard</a></li>
+                <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+                <li><i class="icon_document_alt"></i>Stations</li>
             </ol>
         </div>
-        <!-- /.col-lg-12 -->
     </div>
     <div class="row">
-        <div class="col-md-12 col-lg-12 col-sm-12">
-            <div class="white-box">
-                <h3 class="box-title">Add Stations</h3>
-                <form class="form-horizontal" role="form" id="frm-create-station" action="{{route('postStation')}}" method="post">
-                    <div class="form-group has-success">
-                        <label class="col-sm-2 control-label">Station Name</label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" id="station_name" name="station_name" data-toggle="tooltip" required>
-                        </div>
-                    </div>
-                    <div class="form-group has-success">
-                        <label class="col-sm-2 control-label">Location</label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" id="location" name="location" data-toggle="tooltip" required>
-                        </div>
-                    </div>
+        <div class="col-lg-12">
+            <section class="panel panel-default">
+                <header class="panel-heading">
+                    Add Station
+                </header>
+                <form action="{{route('postStation')}}" class="form-horizontal" id="frm-create-station" method="POST">
+                    <div class="panel-body" style="border-bottom: 1px solid #ccc;">
+                        <div class="panel-panel-default">
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <label for="station-name">Station Name</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name = "station_name" id = "station_name" required>
 
-                    <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <label for="location">Location</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name = "location" id = "location" required>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
                     <div class="panel-footer">
-                        <button type="submit" class="btn btn-success btn-sm ">Add Station</button>
+                        <button type="submit" class="btn btn-default ">Create Station</button>
                     </div>
                 </form>
-
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12 col-lg-12 col-sm-12">
-            <div class="white-box">
-                <h3 class="box-title">Station List</h3>
-                <div class="table-responsive">
-
+                <div class="panel panel-default">
+                    <div class="panel-heading">Station Information</div>
+                    <div class="panel-body" id="add-class-info">
+                    </div>
                 </div>
-            </div>
-
-
+            </section>
         </div>
     </div>
 
 @endsection
-
 @section('script')
-<script type="text/javascript">
-    showStationInfo();
+    <script type="text/javascript">
+       // alert("Hello! I am an alert box!!");
+showStationInfo();
 
-    $('#frm-create-station').on('submit', function (e) {
-        e.preventDefault();
-        var data = $(this).serialize();
-        var url = $(this).attr('action');
-        $.post(url, data,
-            function (data) {
-                showStationInfo(data.station_name);
-                $(this).trigger('reset');
-                swal('Trotro TV',
-                    'Station '+data.station_name+' saved successfully',
-                    'success');
+     $('#frm-create-station').on('submit', function (e) {
+              e.preventDefault();
+               var data = $(this).serialize();
+              var url = $(this).attr('action');
+             $.post(url, data,
+                       function (data) {
+                             showStationInfo(data.station_name);
+                             $(this).trigger('reset');
+                           swal('Trotro TV',
+                                      'Station '+data.station_name+' saved successfully',
+                                     'success');
 
-            }).fail(function (data) {
-            console.log(data);
-            var responseJSON = data.responseJSON;
-            var response = '';
-            for (var key in responseJSON) {
-                if (responseJSON.hasOwnProperty(key)) {
-                    response += "\n" + responseJSON[key] + "\n";
-                }
-            }
-            swal('Trotro TV',
-                response,
-                'error');
-        });
+                             }).fail(function (data) {
+                    console.log(data);
+                     var responseJSON = data.responseJSON;
+                      var response = '';
+                   for (var key in responseJSON) {
+                             if (responseJSON.hasOwnProperty(key)) {
+                                     response += "\n" + responseJSON[key] + "\n";
+                                  }
+                          }
+                      swal('Trotro TV',
+                               response,
+                              'error');
+                  });
 
-    });
-    function showStationInfo()
-    {
-        var data = $('#frm-create-station').serialize();
-        console.log(data);
-        $.get("{{route('showStationInfo')}}", data, function (data) {
-            $('.table-responsive').empty().append(data);
-        });
-    }
-</script>
+             });
+  function showStationInfo()
+  {
+      var data = $('#frm-create-station').serialize();
+      console.log(data);
+     $.get("{{route('showStationInfo')}}", data, function (data) {
+              $('#add-class-info').empty().append(data);
+         });
+   }
+    </script>
     @endsection
