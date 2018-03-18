@@ -10,4 +10,9 @@ class SurveyController extends Controller
     {
         return view('survey.survey');
     }
+
+    public function uploadSurvey(Request $request)
+    {
+
+    }
 }

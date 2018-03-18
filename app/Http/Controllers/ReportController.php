@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Report;
 use App\Vehicle;
 use App\Question;
+
+use \Log;
+
 
 class ReportController extends Controller
 {
@@ -55,6 +59,14 @@ class ReportController extends Controller
         if($request->ajax())
         {
             Report::destroy($request->report_id);
+        }
+    }
+
+    public function uploadReports(Request $request)
+    {
+        if ($request->ajax) {
+            Log::debug('Uploading reports...');
+            Log::debug($request);
         }
     }
 }

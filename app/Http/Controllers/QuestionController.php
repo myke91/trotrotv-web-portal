@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Question;
 
 class QuestionController extends Controller
@@ -11,6 +12,7 @@ class QuestionController extends Controller
     {
         return view('questions.questions');
     }
+
     public function createQuestion(Request $request)
     {
         if($request->ajax())
@@ -20,8 +22,16 @@ class QuestionController extends Controller
     }
     public function showQuestionInformation()
     {
-        $questions= $this->QuestionInformation();
-        return view('questions.questionInfo',compact('questions'));
+        $questions = $this->QuestionInformation();
+        return view('questions.questionInfo', compact('questions'));
+    }
+
+
+    public function downloadQuestions()
+    {
+
+        $questions = $this->QuestionInformation();
+        return response()->json($questions);
 
     }
 
@@ -29,6 +39,7 @@ class QuestionController extends Controller
     {
         return Question::all();
     }
+
     public function editQuestion(Request $request)
     {
         if($request->ajax())
@@ -51,4 +62,6 @@ class QuestionController extends Controller
             Question::destroy($request->question_id);
         }
     }
+
+
 }

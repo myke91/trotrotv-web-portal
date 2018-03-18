@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Vehicle;
 use App\Station;
 
+
 class VehicleController extends Controller
 {
     public function getVehicles()
@@ -54,4 +55,12 @@ class VehicleController extends Controller
             Vehicle::destroy($request->vehicle_id);
         }
     }
+
+    public function downloadVehicles()
+    {
+        $vehicles = $this->VehicleInformation();
+        return response()->json($vehicles);
+    }
+
+
 }
