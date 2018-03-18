@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Brand;
+use Illuminate\Http\Request;
 
 class BrandController extends Controller
 {
@@ -11,17 +11,23 @@ class BrandController extends Controller
     {
         return view('brands.brands');
     }
+
+    public function downloadBrands()
+    {
+        $brands = $this->BrandInformation();
+        return response()->json($brands);
+    }
+
     public function createBrand(Request $request)
     {
-        if($request->ajax())
-        {
+        if ($request->ajax()) {
             return response(Brand::create($request->all()));
         }
     }
     public function showBrandInformation()
     {
         $brands = $this->BrandInformation();
-        return view('brands.brandInfo',compact('brands'));
+        return view('brands.brandInfo', compact('brands'));
 
     }
 
@@ -31,23 +37,20 @@ class BrandController extends Controller
     }
     public function editBrand(Request $request)
     {
-        if($request->ajax())
-        {
+        if ($request->ajax()) {
             return response(Brand::find($request->brand_id));
         }
     }
     //=============================================
     public function updateBrand(Request $request)
     {
-        if($request->ajax())
-        {
-            return response(Brand::updateOrCreate(['brand_id'=>$request->brand_id],$request->all()));
+        if ($request->ajax()) {
+            return response(Brand::updateOrCreate(['brand_id' => $request->brand_id], $request->all()));
         }
     }
     public function deleteBrand(Request $request)
     {
-        if($request->ajax())
-        {
+        if ($request->ajax()) {
             Brand::destroy($request->brand_id);
         }
     }

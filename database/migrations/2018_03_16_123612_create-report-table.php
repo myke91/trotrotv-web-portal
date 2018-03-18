@@ -15,13 +15,11 @@ class CreateReportTable extends Migration
     {
         Schema::create('report', function (Blueprint $table) {
             $table->increments('id');
-            $table->Integer('vehicle_id');
-            $table->Integer('question_id')->unsigned();
+            $table->String('vehicle_number');
+            $table->String('question');
             $table->String('answer');
             $table->String('uploaded');
             $table->DateTime('timestamp');
-            $table->foreign('question_id')->references('question_id')->on('questions');
-            $table->foreign('vehicle_id')->references('vehicle_id')->on('vehicles');
             $table->timestamps();
         });
     }
