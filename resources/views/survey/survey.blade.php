@@ -1,14 +1,13 @@
 @extends('layouts.master')
 @section('content')
-    <div class="row bg-title">
-        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-            <h4 class="page-title">Survey</h4> </div>
-        <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="page-header"><i class="fa fa-file-text-o"></i>TrotroTv</h2>
             <ol class="breadcrumb">
-                <li><a href="#">Dashboard</a></li>
+                <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+                <li><i class="icon_document_alt"></i>Surveys</li>
             </ol>
         </div>
-        <!-- /.col-lg-12 -->
     </div>
 
 @endsection
