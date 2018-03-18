@@ -29,6 +29,13 @@
                 </a>
             </li>
             <li class="sub-menu">
+                <a class="" href="{{route('questions')}}">
+                    <i class="icon_piechart"></i>
+                    <span>Questions</span>
+
+                </a>
+            </li>
+            <li class="sub-menu">
                 <a class="" href="{{route('survey')}}">
                     <i class="icon_piechart"></i>
                     <span>Surveys</span>
