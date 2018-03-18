@@ -3,7 +3,9 @@
         <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
     </div>
 
-    <a href="index.html" class="logo">Trotro<span class="lite">TV</span></a>
+    <a href="index.html" class="logo" style="color:$000000; font-weight: bold">
+        <span style="color: #EC2028">Tro</span style="color: #000000"><span>tro.</span><span style="color: #EC2028">TV</span>
+    </a>
 
     <div class="nav search-row" id="top_menu">
         <ul class="nav top-menu">
