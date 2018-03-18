@@ -35,10 +35,8 @@ Route::post('/updateBrands',['as'=>'updateBrand','uses'=>'BrandController@update
 Route::post('/deleteBrands',['as'=>'deleteBrand','uses'=>'BrandController@deleteBrand']);
 
 
-//api routes
-Route::get('/api/stations',['as'=>'apiStations','uses'=>'StationController@downloadStations']);
-Route::get('/api/brands',['as'=>'apiBrands','uses'=>'BrandController@downloadBrands']);
-Route::get('/api/questions',['as'=>'apiQuestions','uses'=>'QuestionController@downloadQuestions']);
-Route::get('/api/vehicles',['as'=>'apiVehicles','uses'=>'VehicleController@downloadVehicles']);
-Route::post('/api/survey',['as'=>'apiSurvey','uses'=>'SurveyController@uploadSurvey']);
-Route::post('/api/report',['as'=>'apiReports','uses'=>'ReportController@uploadReports']);
+
+
+
+
+

@@ -14,9 +14,7 @@ class ReportController extends Controller
 
     public function uploadReports(Request $request)
     {
-        if ($request->ajax) {
             Log::debug('Uploading reports...');
             Log::debug($request);
-        }
     }
 }

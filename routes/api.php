@@ -16,3 +16,12 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+//api routes
+Route::get('/stations',['as'=>'apiStations','uses'=>'StationController@downloadStations']);
+Route::get('/brands',['as'=>'apiBrands','uses'=>'BrandController@downloadBrands']);
+Route::get('/questions',['as'=>'apiQuestions','uses'=>'QuestionController@downloadQuestions']);
+Route::get('/vehicles',['as'=>'apiVehicles','uses'=>'VehicleController@downloadVehicles']);
+Route::post('/survey',['as'=>'apiSurvey','uses'=>'SurveyController@uploadSurvey']);
+Route::post('/report',['as'=>'apiReports','uses'=>'ReportController@uploadReports']);
