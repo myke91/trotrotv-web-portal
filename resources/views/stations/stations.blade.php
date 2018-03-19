@@ -51,6 +51,7 @@
         </div>
     </div>
 
+
 @endsection
 @section('script')
     <script type="text/javascript">
@@ -91,11 +92,11 @@ showStationInfo();
    }
        $(document).on('click', '.station-edit', function (e) {
            $('#station-show').modal('show');
-           var station_id = $(this).val();
-           $.get("{{route('editStation')}}", {station_id: station_id}, function (data) {
+           var id = $(this).val();
+           $.get("{{route('editStation')}}", {id: id}, function (data) {
                console.log(data)
 
-               $('#station_id_edit').val(data.station_id);
+               $('#station_id_edit').val(data.id);
                $('#station-name').val(data.station_name);
                $('#location-edit').val(data.location);
            });
@@ -125,8 +126,8 @@ showStationInfo();
            });
        })
        $(document).on('click', '.del-station', function (e) {
-           var station_id = $(this).val();
-           $.post("{{route('deleteStation')}}", {station_id: station_id}, function (data) {
+           var id = $(this).val();
+           $.post("{{route('deleteStation')}}", {id: id}, function (data) {
                showStationInfo(data.station_name);
                swal('Trotro TV',
                    'Selected Station deleted successfully',

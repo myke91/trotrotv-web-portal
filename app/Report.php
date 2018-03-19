@@ -8,8 +8,8 @@ class Report extends Model
 {
     protected $table = 'report';
     protected $fillable = [
-        'report_id','vehicle_id','question_id','answer','uploaded','timestamp'
+        'id','vehicle_number','question','answer','uploaded','timestamp'
     ];
-    protected $primaryKey = 'report_id';
+    protected $primaryKey = 'id';
     public $timestamps = true;
 }

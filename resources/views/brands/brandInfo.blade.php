@@ -18,10 +18,10 @@
             <td class="txt-oflo">{{$b->contact_number}} </td>
             <td class="txt-oflo">{{$b->email}} </td>
             <td class="txt-oflo">
-                <Button value="{{$b->brand_id}}" class="btn btn-danger btn-sm del-brand">Del</Button>
+                <Button value="{{$b->id}}" class="btn btn-danger btn-sm del-brand">Del</Button>
             </td>
             <td class="txt-oflo">
-                <Button value="{{$b->brand_id}}" class="btn btn-success btn-sm brand-edit">Edit</Button>
+                <Button value="{{$b->id}}" class="btn btn-success btn-sm brand-edit">Edit</Button>
             </td>
         </tr>
     @endforeach

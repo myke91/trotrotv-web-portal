@@ -7,14 +7,14 @@
             </div>
             <form  id="frm-update-report" role="form" action="">
                 <div class="modal-body">
-                    <input type="hidden" id="report_id_edit" name="report_id">
-                    <label for="station-name">Vehicle Number</label>
+                    <input type="hidden" id="report_id_edit" name="id">
+                    <label for="station-name">Vehicle name</label>
                     <div class="row">
                         <div class="col-sm-12">
-                            <select class="form-control" name = "vehicle_id" id = "vehicle_id">
+                            <select class="form-control" name = "vehicle_number" id = "vehicle_number">
                                 <option value="">---------------</option>
                                 @foreach($vehicles as $key =>$y)
-                                    <option value="{{$y->vehicle_id}}">{{$y->vehicle_number}}</option>
+                                    <option value="{{$y->vehicle_name}}">{{$y->vehicle_name}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -23,10 +23,10 @@
                     <label for="location">Question</label>
                     <div class="row">
                         <div class="col-sm-12">
-                            <select class="form-control" name = "question_id" id = "question_id">
+                            <select class="form-control" name = "question" id = "question">
                                 <option value="">---------------</option>
                                 @foreach($questions as $key =>$y)
-                                    <option value="{{$y->question_id}}">{{$y->question}}</option>
+                                    <option value="{{$y->question}}">{{$y->question}}</option>
                                 @endforeach
                             </select>
                         </div>

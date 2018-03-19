@@ -46,20 +46,20 @@ class StationController extends Controller
     public function editStations(Request $request)
     {
         if ($request->ajax()) {
-            return response(Station::find($request->station_id));
+            return response(Station::find($request->id));
         }
     }
     //=============================================
     public function updateStations(Request $request)
     {
         if ($request->ajax()) {
-            return response(Station::updateOrCreate(['station_id' => $request->station_id], $request->all()));
+            return response(Station::updateOrCreate(['id' => $request->id], $request->all()));
         }
     }
     public function deleteStation(Request $request)
     {
         if ($request->ajax()) {
-            Station::destroy($request->station_id);
+            Station::destroy($request->id);
         }
     }
 }

@@ -37,13 +37,13 @@
         }
         $(document).on('click', '.report-edit', function (e) {
             $('#report-show').modal('show');
-            var report_id = $(this).val();
-            $.get("{{route('editReport')}}", {report_id:report_id}, function (data) {
+            var id = $(this).val();
+            $.get("{{route('editReport')}}", {id:id}, function (data) {
                 console.log(data)
 
-                $('#report_id_edit').val(data.report_id);
-                $('#vehicle_id').val(data.vehicle_id);
-                $('#question_id').val(data.question_id);
+                $('#report_id_edit').val(data.id);
+                $('#vehicle_id').val(data.vehicle_number);
+                $('#question_id').val(data.question);
                 $('#answer').val(data.answer);
                 $('#uploaded').val(data.uploaded);
                 $('#timestamp').val(data.timestamp);
@@ -53,7 +53,7 @@
             e.preventDefault();
             var data = $('#frm-update-report').serialize();
             $.post("{{route('updateReport')}}", data, function (data) {
-                shoReportInfo(data.vehicle_id);
+                showReportInfo(data.vehicle_number);
                 $('#report-show').modal('hide');
                 swal('Trotro TV',
                     'Report updated successfully',
@@ -74,9 +74,9 @@
             });
         })
         $(document).on('click', '.del-report', function (e) {
-            var report_id = $(this).val();
-            $.post("{{route('deleteReport')}}", {report_id: report_id}, function (data) {
-                showReportInfo(data.vehicle_id);
+            var id = $(this).val();
+            $.post("{{route('deleteReport')}}", {id:id}, function (data) {
+                showReportInfo(data.vehicle_number);
                 swal('Trotro TV',
                     'Selected Report deleted successfully',
                     'success');

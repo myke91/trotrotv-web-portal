@@ -21,19 +21,19 @@
                         <div class="panel-panel-default">
                             <div class="form-group">
                                 <div class="col-sm-12">
-                                    <label for="station-name">Vehicle Number</label>
+                                    <label for="station-name">Vehicle Name</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" name = "vehicle_number" id = "vehicle_number" required>
+                                        <input type="text" class="form-control" name = "vehicle_name" id = "vehicle_name" required>
 
                                     </div>
                                 </div>
                                 <div class="col-sm-12">
                                     <label for="location">Station</label>
                                     <div class="input-group">
-                                        <select class="form-control" name = "station_id" id = "station_id" required>
+                                        <select class="form-control" name = "station_name" id = "station_name" required>
                                             <option value="">---------------</option>
                                             @foreach($stations as $key =>$y)
-                                                <option value="{{$y->station_id}}">{{$y->station_name}}</option>
+                                                <option value="{{$y->station_name}}">{{$y->station_name}}</option>
                                             @endforeach
                                         </select>
 
@@ -66,9 +66,9 @@
             var data = $(this).serialize();
             var url = $(this).attr('action');
             $.post(url, data,function (data) {
-                showVehicleInfo(data.vehicle_number);
+                showVehicleInfo(data.vehicle_name);
                 swal('Trotro TV',
-                    'Vehicle '+data.vehicle_number+' saved successfully',
+                    'Vehicle '+data.vehicle_nanme+' saved successfully',
                     'success');
 
             }).fail(function (data) {
@@ -96,23 +96,23 @@
         }
         $(document).on('click', '.vehicle-edit', function (e) {
             $('#vehicle-show').modal('show');
-            var vehicle_id = $(this).val();
-            $.get("{{route('editVehicle')}}", {vehicle_id: vehicle_id}, function (data) {
+            var id = $(this).val();
+            $.get("{{route('editVehicle')}}", {id:id}, function (data) {
                 console.log(data)
 
-                $('#vehicle_id_edit').val(data.vehicle_id);
-                $('#vehicle-number').val(data.vehicle_number);
-                $('#station_id_edit').val(data.station_id);
+                $('#vehicle_id_edit').val(data.id);
+                $('#vehicle-name-edit').val(data.vehicle_name);
+                $('#station_name_edit').val(data.station_name);
             });
         });
         $('.btn-update-vehicle').on('click', function (e) {
             e.preventDefault();
             var data = $('#frm-update-vehicle').serialize();
             $.post("{{route('updateVehicle')}}", data, function (data) {
-                showVehicleInfo(data.vehicle);
+                showVehicleInfo(data.vehicle_name);
                 $('#vehicle-show').modal('hide');
                 swal('Trotro TV',
-                    'Station '+data.vehicle_number+' updated successfully',
+                    'Station '+data.vehicle_name+' updated successfully',
                     'success');
 
             }).fail(function (data) {
@@ -130,9 +130,9 @@
             });
         })
         $(document).on('click', '.del-station', function (e) {
-            var vehicle_id = $(this).val();
-            $.post("{{route('deleteVehicle')}}", {vehicle_id: vehicle_id}, function (data) {
-                showVehicleInfo(data.vehicle_number);
+            var id = $(this).val();
+            $.post("{{route('deleteVehicle')}}", {id: id}, function (data) {
+                showVehicleInfo(data.vehicle_name);
                 swal('Trotro TV',
                     'Selected Vehicle deleted successfully',
                     'success');

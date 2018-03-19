@@ -8,8 +8,8 @@ class Vehicle extends Model
 {
     protected $table = 'vehicles';
     protected $fillable = [
-        'vehicle_id','vehicle_number','station_id'
+        'id','vehicle_name','station_name'
     ];
-    protected $primaryKey = 'vehicle_id';
+    protected $primaryKey = 'id';
     public $timestamps = true;
 }

@@ -8,8 +8,8 @@ class Brand extends Model
 {
     protected $table = 'brand';
     protected $fillable = [
-        'brand_id','brand_name','location','contact_person','contact_number','email'
+        'id','brand_name','location','contact_person','contact_number','email'
     ];
-    protected $primaryKey = 'brand_id';
+    protected $primaryKey = 'id';
     public $timestamps = true;
 }

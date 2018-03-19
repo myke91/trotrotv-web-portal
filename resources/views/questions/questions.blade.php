@@ -91,11 +91,11 @@
         }
         $(document).on('click', '.question-edit', function (e) {
             $('#question-show').modal('show');
-            var question_id = $(this).val();
-            $.get("{{route('editQuestion')}}", {question_id: question_id}, function (data) {
+            var id = $(this).val();
+            $.get("{{route('editQuestion')}}", {id:id}, function (data) {
                 console.log(data)
 
-                $('#question_id_edit').val(data.question_id);
+                $('#question_id_edit').val(data.id);
                 $('#question-edit').val(data.question);
                 $('#type-edit').val(data.type);
             });
@@ -125,8 +125,8 @@
             });
         })
         $(document).on('click', '.del-question', function (e) {
-            var question_id = $(this).val();
-            $.post("{{route('deleteQuestion')}}", {question_id: question_id}, function (data) {
+            var id = $(this).val();
+            $.post("{{route('deleteQuestion')}}", {id:id}, function (data) {
                 showQuestionInfo(data.question);
                 swal('Trotro TV',
                     'Selected Question deleted successfully',

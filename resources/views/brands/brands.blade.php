@@ -112,11 +112,11 @@
         }
         $(document).on('click', '.brand-edit', function (e) {
             $('#brand-show').modal('show');
-            var brand_id = $(this).val();
-            $.get("{{route('editBrand')}}", {brand_id: brand_id}, function (data) {
+            var id = $(this).val();
+            $.get("{{route('editBrand')}}", {id:id}, function (data) {
                 console.log(data)
 
-                $('#brand_id_edit').val(data.brand_id);
+                $('#brand_id_edit').val(data.id);
                 $('#brand-name').val(data.brand_name);
                 $('#location-edit').val(data.location);
                 $('#contact-person').val(data.contact_person);
@@ -149,8 +149,8 @@
             });
         })
         $(document).on('click', '.del-brand', function (e) {
-            var brand_id = $(this).val();
-            $.post("{{route('deleteBrand')}}", {brand_id: brand_id}, function (data) {
+            var id = $(this).val();
+            $.post("{{route('deleteBrand')}}", {id: id}, function (data) {
                 showBrandInfo(data.brand_name);
                 swal('Trotro TV',
                     'Selected brand  deleted successfully',

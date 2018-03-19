@@ -44,7 +44,7 @@ class QuestionController extends Controller
     {
         if($request->ajax())
         {
-            return response(Question::find($request->question_id));
+            return response(Question::find($request->id));
         }
     }
     //=============================================
@@ -52,14 +52,14 @@ class QuestionController extends Controller
     {
         if($request->ajax())
         {
-            return response(Question::updateOrCreate(['question_id'=>$request->question_id],$request->all()));
+            return response(Question::updateOrCreate(['id'=>$request->id],$request->all()));
         }
     }
     public function deleteQuestion(Request $request)
     {
         if($request->ajax())
         {
-            Question::destroy($request->question_id);
+            Question::destroy($request->id);
         }
     }
 

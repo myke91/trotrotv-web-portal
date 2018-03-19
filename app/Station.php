@@ -8,8 +8,8 @@ class Station extends Model
 {
     protected $table = 'station';
     protected $fillable = [
-        'station_id','station_name','location'
+        'id','station_name','location'
     ];
-    protected $primaryKey = 'station_id';
+    protected $primaryKey = 'id';
     public $timestamps = true;
 }

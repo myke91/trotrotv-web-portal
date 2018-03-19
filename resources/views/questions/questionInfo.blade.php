@@ -12,10 +12,10 @@
             <td>{{$s->question}}</td>
             <td class="txt-oflo">{{$s->type}} </td>
             <td class="txt-oflo">
-                <Button value="{{$s->question_id}}" class="btn btn-danger btn-sm del-question">Del</Button>
+                <Button value="{{$s->id}}" class="btn btn-danger btn-sm del-question">Del</Button>
             </td>
             <td class="txt-oflo">
-                <Button value="{{$s->question_id}}" class="btn btn-success btn-sm question-edit">Edit</Button>
+                <Button value="{{$s->id}}" class="btn btn-success btn-sm question-edit">Edit</Button>
             </td>
         </tr>
     @endforeach

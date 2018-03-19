@@ -7,7 +7,7 @@
             </div>
             <form  id="frm-update-brand" role="form" action="">
                 <div class="modal-body">
-                    <input type="hidden" id="brand_id_edit" name="brand_id">
+                    <input type="hidden" id="brand_id_edit" name="id">
                     <label for="brand-name">Brand Name</label>
                     <div class="row">
                         <div class="col-sm-12">

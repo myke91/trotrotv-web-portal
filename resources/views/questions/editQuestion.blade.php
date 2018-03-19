@@ -7,7 +7,7 @@
             </div>
             <form  id="frm-update-question" role="form" action="">
                 <div class="modal-body">
-                    <input type="hidden" id="question_id_edit" name="question_id">
+                    <input type="hidden" id="question_id_edit" name="id">
                     <label for="station-name">Question</label>
                     <div class="row">
                         <div class="col-sm-12">

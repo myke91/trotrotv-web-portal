@@ -38,20 +38,20 @@ class BrandController extends Controller
     public function editBrand(Request $request)
     {
         if ($request->ajax()) {
-            return response(Brand::find($request->brand_id));
+            return response(Brand::find($request->id));
         }
     }
     //=============================================
     public function updateBrand(Request $request)
     {
         if ($request->ajax()) {
-            return response(Brand::updateOrCreate(['brand_id' => $request->brand_id], $request->all()));
+            return response(Brand::updateOrCreate(['id' => $request->id], $request->all()));
         }
     }
     public function deleteBrand(Request $request)
     {
         if ($request->ajax()) {
-            Brand::destroy($request->brand_id);
+            Brand::destroy($request->id);
         }
     }
 }

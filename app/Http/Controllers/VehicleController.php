@@ -30,14 +30,13 @@ class VehicleController extends Controller
 
     public function VehicleInformation()
     {
-        return Vehicle::join('station','station.station_id','=','vehicles.station_id')
-            ->get();
+        return Vehicle::all();
     }
     public function editVehicle(Request $request)
     {
         if($request->ajax())
         {
-            return response(Vehicle::find($request->vehicle_id));
+            return response(Vehicle::find($request->id));
         }
     }
     //=============================================
@@ -45,14 +44,14 @@ class VehicleController extends Controller
     {
         if($request->ajax())
         {
-            return response(Vehicle::updateOrCreate(['vehicle_id'=>$request->vehicle_id],$request->all()));
+            return response(Vehicle::updateOrCreate(['id'=>$request->id],$request->all()));
         }
     }
     public function deleteVehicle(Request $request)
     {
         if($request->ajax())
         {
-            Vehicle::destroy($request->vehicle_id);
+            Vehicle::destroy($request->id);
         }
     }
 

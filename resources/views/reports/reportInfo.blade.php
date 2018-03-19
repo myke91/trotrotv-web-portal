@@ -18,10 +18,10 @@
             <td class="txt-oflo">{{$r->uploaded}} </td>
             <td class="txt-oflo">{{$r->timestamp}} </td>
             <td class="txt-oflo">
-                <Button value="{{$r->report_id}}" class="btn btn-danger btn-sm del-report">Del</Button>
+                <Button value="{{$r->id}}" class="btn btn-danger btn-sm del-report">Del</Button>
             </td>
             <td class="txt-oflo">
-                <Button value="{{$r->report_id}}" class="btn btn-success btn-sm report-edit">Edit</Button>
+                <Button value="{{$r->id}}" class="btn btn-success btn-sm report-edit">Edit</Button>
             </td>
         </tr>
     @endforeach

@@ -8,8 +8,8 @@ class Question extends Model
 {
     protected $table = 'questions';
     protected $fillable = [
-        'question_id','question','type'
+        'id','question','type'
     ];
-    protected $primaryKey = 'question_id';
+    protected $primaryKey = 'id';
     public $timestamps = true;
 }
