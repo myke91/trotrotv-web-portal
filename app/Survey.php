@@ -8,8 +8,8 @@ class Survey extends Model
 {
     protected $table = 'survey';
     protected $fillable = [
-        'survey_id','brand_id','question_id','answer','uploaded','timestamp'
+        'id','brand_name','question','answer','uploaded','timestamp'
     ];
-    protected $primaryKey = 'survey_id';
+    protected $primaryKey = 'id';
     public $timestamps = true;
 }

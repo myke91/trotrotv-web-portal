@@ -3,7 +3,7 @@
         <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
     </div>
 
-    <a href="index.html" class="logo" style="color:$000000; font-weight: bold">
+    <a href="/" class="logo" style="color:$000000; font-weight: bold">
         <span style="color: #EC2028">Tro</span style="color: #000000"><span>tro.</span><span style="color: #EC2028">TV</span>
     </a>
 
@@ -27,7 +27,7 @@
                             </span>
                     <span class="username">
                         @if(Auth::check())
-                            {{Auth::getUser()->username}}</span>
+                            {{ucfirst(Auth::getUser()->username)}}</span>
                     @else
                         No User
                     @endif
@@ -36,7 +36,15 @@
                 <ul class="dropdown-menu extended logout">
                     <div class="log-arrow-up"></div>
                     <li>
-                        <a href=""><i class="icon_key_alt"></i> Log Out</a>
+                        <a href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                            Logout
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
                     </li>
                 </ul>
             </li>
