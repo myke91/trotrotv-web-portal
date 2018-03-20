@@ -33,6 +33,7 @@ class ReportController extends Controller
     {
         return Report::all();
     }
+
     public function editReport(Request $request)
     {
         if ($request->ajax()) {
