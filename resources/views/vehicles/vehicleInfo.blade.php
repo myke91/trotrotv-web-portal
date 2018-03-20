@@ -1,7 +1,7 @@
 <table class="table" id="investTable">
     <thead>
     <tr>
-        <th>VEHICLE NUMBER</th>
+        <th>VEHICLE NAME</th>
         <th>STATION</th>
         <th colspan="2">Action</th>
     </tr>

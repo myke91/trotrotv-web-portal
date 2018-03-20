@@ -11,10 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
-});
 
+    Route::get('/',['as'=>'dashboard','uses'=>'DashboardController@Dashboard']);
     Route::get('/stations', ['as' => 'stations', 'uses' => 'StationController@getStations']);
     Route::get('/brands', ['as' => 'brands', 'uses' => 'BrandController@getBrands']);
     Route::get('/questions', ['as' => 'questions', 'uses' => 'QuestionController@getQuestions']);
@@ -58,6 +56,9 @@ Route::get('/', function () {
     Route::post('/updateSurvey', ['as' => 'updateSurvey', 'uses' => 'SurveyController@updateSurvey']);
     Route::post('/deleteSurvey', ['as' => 'deleteSurvey', 'uses' => 'SurveyController@deleteSurvey']);
 
+//exports
+Route::get('reports/export',['as'=>'exportReports','uses' =>'DashboardController@exportReports']);
+Route::get('surveys/export',['as'=>'exportSurveys','uses' =>'DashboardController@exportSurvey']);
 
 Auth::routes();
 
