@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Survey;
 use App\Brand;
 use App\Question;
+use App\Survey;
+use Illuminate\Http\Request;
+use \Log;
 
 class SurveyController extends Controller
 {
@@ -13,24 +14,19 @@ class SurveyController extends Controller
     {
         $brands = Brand::all();
         $questions = Question::all();
-        return view('survey.survey',compact('brands','questions'));
+        return view('survey.survey', compact('brands', 'questions'));
     }
 
-    public function uploadSurvey(Request $request)
-    {
-
-    }
     public function createSurvey(Request $request)
     {
-        if($request->ajax())
-        {
+        if ($request->ajax()) {
             return response(Survey::create($request->all()));
         }
     }
     public function showSurveyInformation()
     {
-        $surveys= $this->SurveyInformation();
-        return view('survey.surveyInfo',compact('surveys'));
+        $surveys = $this->SurveyInformation();
+        return view('survey.surveyInfo', compact('surveys'));
 
     }
 
@@ -40,26 +36,59 @@ class SurveyController extends Controller
     }
     public function editSurvey(Request $request)
     {
-        if($request->ajax())
-        {
+        if ($request->ajax()) {
             return response(Survey::find($request->id));
         }
     }
     //=============================================
     public function updateSurvey(Request $request)
     {
-        if($request->ajax())
-        {
-            return response(Survey::updateOrCreate(['id'=>$request->id],$request->all()));
+        if ($request->ajax()) {
+            return response(Survey::updateOrCreate(['id' => $request->id], $request->all()));
         }
     }
     public function deleteSurvey(Request $request)
     {
-        if($request->ajax())
-        {
+        if ($request->ajax()) {
             Survey::destroy($request->id);
         }
     }
 
+    public function uploadSurvey(Request $request)
+    {
+        Log::debug('Uploading survey...');
+        $i = 0;
+        $data = array();
+        while (true) {
+            if (!$request[$i]) {
+                break;
+            }
+
+            $item = $request[$i];
+
+            $survey = new Survey();
+            $survey->brand = (string) $item['brand'];
+            $survey->question = (string) $item['question'];
+            $survey->answer = (string) $item['answer'];
+            $survey->uploaded = "true";
+            $survey->timestamp = (string) $item['timestamp'];
+
+            $survey->save();
+
+            $fields = array();
+            $fields['id'] = $item['id'];
+            $fields['brand'] = $survey->brand;
+            $fields['question'] = $survey->question;
+            $fields['answer'] = $survey->answer;
+            $fields['uploaded'] = $survey->uploaded;
+            $fields['timestamp'] = $survey->timestamp;
+
+            array_push($data, $fields);
+
+            $i++;
+        }
+        Log::debug($data);
+        return response()->json($data);
+    }
 
 }

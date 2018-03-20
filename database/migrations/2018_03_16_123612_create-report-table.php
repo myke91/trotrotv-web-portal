@@ -20,7 +20,7 @@ class CreateReportTable extends Migration
             $table->String('question');
             $table->String('answer');
             $table->String('uploaded');
-            $table->DateTime('timestamp');
+            $table->String('timestamp');
             $table->timestamps();
         });
     }
