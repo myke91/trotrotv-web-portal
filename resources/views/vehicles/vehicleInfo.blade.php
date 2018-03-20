@@ -9,8 +9,8 @@
     <tbody>
     @foreach($vehicles as $key => $v)
         <tr>
-            <td>{{$v->vehicle_name}}</td>
-            <td class="txt-oflo">{{$v->station_name}} </td>
+            <td>{{$v->vehicle}}</td>
+            <td class="txt-oflo">{{$v->station}} </td>
             <td class="txt-oflo">
                 <Button value="{{$v->id}}" class="btn btn-danger btn-sm del-vehicle">Del</Button>
             </td>

@@ -41,7 +41,7 @@
                 console.log(data)
 
                 $('#survey_id_edit').val(data.id);
-                $('#brand_name').val(data.brand_name);
+                $('#brand_name').val(data.brand);
                 $('#question').val(data.question);
                 $('#answer').val(data.answer);
                 $('#uploaded').val(data.uploaded);
@@ -52,7 +52,7 @@
             e.preventDefault();
             var data = $('#frm-update-survey').serialize();
             $.post("{{route('updateSurvey')}}", data, function (data) {
-                showSurveyInfo(data.brand_name);
+                showSurveyInfo(data.brand);
                 $('#survey-show').modal('hide');
                 swal('Trotro TV',
                     'Survey updated successfully',
@@ -75,7 +75,7 @@
         $(document).on('click', '.del-survey', function (e) {
             var id = $(this).val();
             $.post("{{route('deleteReport')}}", {id:id}, function (data) {
-                showReportInfo(data.brand_name);
+                showReportInfo(data.brand);
                 swal('Trotro TV',
                     'Selected Survey deleted successfully',
                     'success');

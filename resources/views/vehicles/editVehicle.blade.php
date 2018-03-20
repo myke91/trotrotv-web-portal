@@ -11,17 +11,17 @@
                     <label for="vehicle-number">Vehicle Number</label>
                     <div class="row">
                         <div class="col-sm-12">
-                            <input type="text" name="vehicle_name" id="vehicle-name-edit" class="form-control">
+                            <input type="text" name="vehicle" id="vehicle-name-edit" class="form-control">
                         </div>
                     </div>
                     <br>
                     <label for="station">Station</label>
                     <div class="row">
                         <div class="col-sm-12">
-                            <select class="form-control" name = "station_name" id = "station_name_edit">
+                            <select class="form-control" name = "station" id = "station_name_edit">
                                 <option value="">---------------</option>
                                 @foreach($stations as $key =>$y)
-                                    <option value="{{$y->station_name}}">{{$y->station_name}}</option>
+                                    <option value="{{$y->station}}">{{$y->station}}</option>
                                 @endforeach
                             </select>
                         </div>

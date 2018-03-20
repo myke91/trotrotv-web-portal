@@ -12,7 +12,7 @@
     <tbody>
     @foreach($reports as $key => $r)
         <tr>
-            <td>{{$r->vehicle_number}}</td>
+            <td>{{$r->vehicle}}</td>
             <td class="txt-oflo">{{$r->question}} </td>
             <td class="txt-oflo">{{$r->answer}} </td>
             <td class="txt-oflo">{{$r->uploaded}} </td>

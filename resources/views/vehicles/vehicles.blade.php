@@ -23,14 +23,14 @@
                                 <div class="col-sm-12">
                                     <label for="station-name">Vehicle Name</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" name = "vehicle_name" id = "vehicle_name" required>
+                                        <input type="text" class="form-control" name = "vehicle" id = "vehicle" required>
 
                                     </div>
                                 </div>
                                 <div class="col-sm-12">
                                     <label for="location">Station</label>
                                     <div class="input-group">
-                                        <select class="form-control" name = "station_name" id = "station_name" required>
+                                        <select class="form-control" name = "station" id = "station" required>
                                             <option value="">---------------</option>
                                             @foreach($stations as $key =>$y)
                                                 <option value="{{$y->station_name}}">{{$y->station_name}}</option>
@@ -59,16 +59,15 @@
 @endsection
 @section('script')
     <script type="text/javascript">
-        // alert("Hello! I am an alert box!!");
         showVehicleInfo();
         $('#frm-create-vehicle').on('submit', function (e) {
             e.preventDefault();
             var data = $(this).serialize();
             var url = $(this).attr('action');
             $.post(url, data,function (data) {
-                showVehicleInfo(data.vehicle_name);
+                showVehicleInfo(data.vehicle);
                 swal('Trotro TV',
-                    'Vehicle '+data.vehicle_nanme+' saved successfully',
+                    'Vehicle '+data.vehicle+' saved successfully',
                     'success');
 
             }).fail(function (data) {
@@ -101,18 +100,18 @@
                 console.log(data)
 
                 $('#vehicle_id_edit').val(data.id);
-                $('#vehicle-name-edit').val(data.vehicle_name);
-                $('#station_name_edit').val(data.station_name);
+                $('#vehicle-name-edit').val(data.vehicle);
+                $('#station_name_edit').val(data.station);
             });
         });
         $('.btn-update-vehicle').on('click', function (e) {
             e.preventDefault();
             var data = $('#frm-update-vehicle').serialize();
             $.post("{{route('updateVehicle')}}", data, function (data) {
-                showVehicleInfo(data.vehicle_name);
+                showVehicleInfo(data.vehicle);
                 $('#vehicle-show').modal('hide');
                 swal('Trotro TV',
-                    'Station '+data.vehicle_name+' updated successfully',
+                    'Station '+data.vehicle+' updated successfully',
                     'success');
 
             }).fail(function (data) {
@@ -132,7 +131,7 @@
         $(document).on('click', '.del-station', function (e) {
             var id = $(this).val();
             $.post("{{route('deleteVehicle')}}", {id: id}, function (data) {
-                showVehicleInfo(data.vehicle_name);
+                showVehicleInfo(data.vehicle);
                 swal('Trotro TV',
                     'Selected Vehicle deleted successfully',
                     'success');

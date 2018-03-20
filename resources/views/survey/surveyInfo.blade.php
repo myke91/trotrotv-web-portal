@@ -12,7 +12,7 @@
     <tbody>
     @foreach($surveys as $key => $s)
         <tr>
-            <td>{{$s->brand_name}}</td>
+            <td>{{$s->brand}}</td>
             <td class="txt-oflo">{{$s->question}} </td>
             <td class="txt-oflo">{{$s->answer}} </td>
             <td class="txt-oflo">{{$s->uploaded}} </td>

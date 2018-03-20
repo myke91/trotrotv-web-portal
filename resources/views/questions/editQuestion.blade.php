@@ -18,7 +18,11 @@
                     <label for="location">Type</label>
                     <div class="row">
                         <div class="col-sm-12">
-                            <input type="text" name="type" id="type-edit" class="form-control">
+                            <select class="form-control" name = "type" id = "type_edit">
+                                <option value="">---------------</option>
+                                <option value="REPORT">REPORT</option>
+                                <option value="SURVEY">SURVEY</option>
+                            </select>
                         </div>
                     </div>
                 </div>

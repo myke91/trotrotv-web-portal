@@ -49,7 +49,7 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-12">
-                                    <label for="email">email</label>
+                                    <label for="email">Email</label>
                                     <div class="input-group">
                                         <input type="text" class="form-control" name = "email" id = "location" required>
 
