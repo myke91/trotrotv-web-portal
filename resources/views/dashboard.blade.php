@@ -28,7 +28,7 @@
                             <tbody>
                             @foreach($reports as $key => $r)
                                 <tr>
-                                    <td>{{$r->vehicle_number}}</td>
+                                    <td>{{$r->vehicle}}</td>
                                     <td class="txt-oflo">{{$r->question}} </td>
                                     <td class="txt-oflo">{{$r->answer}} </td>
                                     <td class="txt-oflo">{{$r->uploaded}} </td>
@@ -58,7 +58,7 @@
                             <tbody>
                             @foreach($surveys as $key => $s)
                                 <tr>
-                                    <td>{{$s->brand_name}}</td>
+                                    <td>{{$s->brand}}</td>
                                     <td class="txt-oflo">{{$s->question}} </td>
                                     <td class="txt-oflo">{{$s->answer}} </td>
                                     <td class="txt-oflo">{{$s->uploaded}} </td>
