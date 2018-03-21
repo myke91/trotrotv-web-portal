@@ -37,9 +37,19 @@
                             @endforeach
                             </tbody>
                         </table>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-body" id="add-report-links">
+                        {{$reports->links()}}
                         <form action="{{route('exportReports')}}" enctype="multipart/form-data">
                             <button class="btn btn-success" type="submit">Export Report</button>
                         </form>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-body" id="add-report-export">
+
                     </div>
                 </div>
                 <div class="panel panel-default">
@@ -67,6 +77,11 @@
                             @endforeach
                             </tbody>
                         </table>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-body" id="add-survey-links">
+                        {{$surveys->links()}}
                         <form action="{{route('exportSurveys')}}" enctype="multipart/form-data">
                             <button class="btn btn-success" type="submit">Export Survey</button>
                         </form>

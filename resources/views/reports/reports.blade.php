@@ -42,8 +42,8 @@
                 console.log(data)
 
                 $('#report_id_edit').val(data.id);
-                $('#vehicle_id').val(data.vehicle_number);
-                $('#question_id').val(data.question);
+                $('#vehicle').val(data.vehicle);
+                $('#question').val(data.question);
                 $('#answer').val(data.answer);
                 $('#uploaded').val(data.uploaded);
                 $('#timestamp').val(data.timestamp);
@@ -53,7 +53,7 @@
             e.preventDefault();
             var data = $('#frm-update-report').serialize();
             $.post("{{route('updateReport')}}", data, function (data) {
-                showReportInfo(data.vehicle_number);
+                showReportInfo(data.vehicle);
                 $('#report-show').modal('hide');
                 swal('Trotro TV',
                     'Report updated successfully',
@@ -76,7 +76,7 @@
         $(document).on('click', '.del-report', function (e) {
             var id = $(this).val();
             $.post("{{route('deleteReport')}}", {id:id}, function (data) {
-                showReportInfo(data.vehicle_number);
+                showReportInfo(data.vehicle);
                 swal('Trotro TV',
                     'Selected Report deleted successfully',
                     'success');

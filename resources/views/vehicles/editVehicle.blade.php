@@ -21,7 +21,7 @@
                             <select class="form-control" name = "station" id = "station_name_edit">
                                 <option value="">---------------</option>
                                 @foreach($stations as $key =>$y)
-                                    <option value="{{$y->station}}">{{$y->station}}</option>
+                                    <option value="{{$y->station_name}}">{{$y->station_name}}</option>
                                 @endforeach
                             </select>
                         </div>

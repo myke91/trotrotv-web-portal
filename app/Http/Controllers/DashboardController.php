@@ -11,13 +11,13 @@ class DashboardController extends Controller
 {
     public function Dashboard()
     {
-        $reports= Report::all();
-        $surveys = Survey::all();
+        $reports= Report::paginate(10);
+        $surveys = Survey::paginate(10);
         return view('dashboard',compact('reports','surveys'));
     }
 
     public function exportReports(){
-        $reports = Report::whereRaw('Date(timestamp) = CURDATE()')->get();
+        $reports = Report::all();
         Excel::create('reports', function($excel) use($reports) {
             $excel->sheet('ExportFile', function($sheet) use($reports) {
                 $sheet->fromArray($reports);
@@ -27,7 +27,7 @@ class DashboardController extends Controller
     }
 
     public function exportSurvey(){
-        $surveys = Survey::whereRaw('Date(timestamp) = CURDATE()')->get();
+        $surveys = Survey::all();
         Excel::create('surveys', function($excel) use($surveys) {
             $excel->sheet('ExportFile', function($sheet) use($surveys) {
                 $sheet->fromArray($surveys);

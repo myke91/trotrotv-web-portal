@@ -11,7 +11,7 @@
                     <label for="station-name">Vehicle name</label>
                     <div class="row">
                         <div class="col-sm-12">
-                            <select class="form-control" name = "vehicle_number" id = "vehicle_number">
+                            <select class="form-control" name = "vehicle" id = "vehicle">
                                 <option value="">---------------</option>
                                 @foreach($vehicles as $key =>$y)
                                     <option value="{{$y->vehicle}}">{{$y->vehicle}}</option>

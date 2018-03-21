@@ -100,7 +100,7 @@
 
                 $('#question_id_edit').val(data.id);
                 $('#question-edit').val(data.question);
-                $('#type-edit').val(data.type);
+                $('#type_edit').val(data.type);
             });
         });
         $('.btn-update-question').on('click', function (e) {
