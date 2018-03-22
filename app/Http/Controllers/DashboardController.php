@@ -18,7 +18,7 @@ class DashboardController extends Controller
 
     public function exportReports(){
         $reports = Report::all();
-        Excel::create('reports', function($excel) use($reports) {
+        Excel::create('reports '.date('Y-m-d h:i:sa'), function($excel) use($reports) {
             $excel->sheet('ExportFile', function($sheet) use($reports) {
                 $sheet->fromArray($reports);
             });
@@ -28,7 +28,7 @@ class DashboardController extends Controller
 
     public function exportSurvey(){
         $surveys = Survey::all();
-        Excel::create('surveys', function($excel) use($surveys) {
+        Excel::create('surveys '.date('Y-m-d h:i:sa'), function($excel) use($surveys) {
             $excel->sheet('ExportFile', function($sheet) use($surveys) {
                 $sheet->fromArray($surveys);
             });
