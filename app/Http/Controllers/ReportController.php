@@ -83,7 +83,6 @@ class ReportController extends Controller
             $fields['uploaded'] = $report->uploaded;
             $fields['timestamp'] = $report->timestamp;
 
-            
             array_push($data, $fields);
 
             $i++;
