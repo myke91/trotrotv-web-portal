@@ -63,6 +63,24 @@
                             </select>
                         </div>
                     </div>
+                    <label for="respondent_name">Respondent Name</label>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <input type="text" name="respondent_name" id="respondent_name" class="form-control">
+                        </div>
+                    </div>
+                    <label for="respondent_tel_number">Respondent Tel. Number</label>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <input type="text" name="respondent_tel_number" id="respondent_tel_number" class="form-control">
+                        </div>
+                    </div>
+                    <label for="respondent_email">Respondent Email</label>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <input type="text" name="respondent_email" id="respondent_email" class="form-control">
+                        </div>
+                    </div>
                 </div>
 
                 <div class="modal-footer">

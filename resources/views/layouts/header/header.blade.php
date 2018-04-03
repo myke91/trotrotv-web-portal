@@ -10,9 +10,9 @@
       <div class="nav search-row" id="top_menu">
         <ul class="nav top-menu">
             <li>
-                <form class="navbar-form">
+                {{-- <form class="navbar-form">
                     <input class="form-control" placeholder="Search" type="text">
-                </form>
+                </form> --}}
             </li>
         </ul>
 
@@ -25,7 +25,7 @@
                             <span class="profile-ava">
                             <!--    <img alt="" src="img/avatar1_small.jpg">-->
                             </span>
-                    <span class="username">
+                    <span style="color:#000000"class="username">
                     @if(Auth::check())
                         {{ucfirst(Auth::getUser()->username)}}</span>
                     @else

@@ -21,6 +21,9 @@ class CreateSurveyTable extends Migration
             $table->String('uploaded');
             $table->String('timestamp');
             $table->String('user');
+            $table->String('respondent_name');
+            $table->String('respondent_tel_number');
+            $table->String('respondent_email');
             $table->timestamps();
         });
     }

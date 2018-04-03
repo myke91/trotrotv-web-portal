@@ -7,6 +7,9 @@
         <th>UPLOADED</th>
         <th>TIMESTAMP</th>
         <th>USER</th>
+        <th>RESPONDENT NAME</th>
+        <th>RESPONDENT TEL. NUMBER</th>
+        <th>RESPONDENT EMAIL</th>
         <th colspan="2">Action</th>
     </tr>
     </thead>
@@ -19,6 +22,9 @@
             <td class="txt-oflo">{{$s->uploaded}} </td>
             <td class="txt-oflo">{{$s->timestamp}} </td>
             <td class="txt-oflo">{{$s->user}} </td>
+            <td class="txt-oflo">{{$s->respondent_name}} </td>
+            <td class="txt-oflo">{{$s->respondent_tel_number}} </td>
+            <td class="txt-oflo">{{$s->respondent_email}} </td>
             <td class="txt-oflo">
                 <Button value="{{$s->id}}" class="btn btn-danger btn-sm del-survey">Del</Button>
             </td>

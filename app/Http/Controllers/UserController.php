@@ -47,4 +47,11 @@ class UserController extends Controller
             Logger::destroy($request->id);
         }
     }
+
+    public function downloadAccessCodes()
+    {
+        $users = $this->LoggerInformation();
+        return response()->json($users);
+    }
+
 }

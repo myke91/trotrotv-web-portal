@@ -50,4 +50,10 @@ class AnswerController extends Controller
             Answer::destroy($request->id);
         }
     }
+
+    public function downloadAnswers()
+    {
+        $answers = Answer::all();
+        return response()->json($answers);
+    }
 }

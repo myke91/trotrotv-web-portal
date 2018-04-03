@@ -46,6 +46,9 @@
                 $('#answer').val(data.answer);
                 $('#uploaded').val(data.uploaded);
                 $('#timestamp').val(data.timestamp);
+                $('#respondent_name').val(data.respondent_name);
+                $('#respondent_tel_number').val(data.respondent_tel_number);
+                $('#respondent_email').val(data.respondent_email);
             });
         });
         $('.btn-update-survey').on('click', function (e) {

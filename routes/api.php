@@ -22,6 +22,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/stations',['as'=>'apiStations','uses'=>'StationController@downloadStations']);
 Route::get('/brands',['as'=>'apiBrands','uses'=>'BrandController@downloadBrands']);
 Route::get('/questions',['as'=>'apiQuestions','uses'=>'QuestionController@downloadQuestions']);
+Route::get('/answers',['as'=>'apiAnswers','uses'=>'AnswerController@downloadAnswers']);
 Route::get('/vehicles',['as'=>'apiVehicles','uses'=>'VehicleController@downloadVehicles']);
+Route::get('/codes',['as'=>'apiCodes','uses'=>'UserController@downloadAccessCodes']);
 Route::post('/survey',['as'=>'apiSurvey','uses'=>'SurveyController@uploadSurvey']);
 Route::post('/report',['as'=>'apiReports','uses'=>'ReportController@uploadReports']);

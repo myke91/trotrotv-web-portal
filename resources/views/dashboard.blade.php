@@ -68,6 +68,9 @@
                                 <th>UPLOADED</th>
                                 <th>TIMESTAMP</th>
                                 <th>USER</th>
+                                <th>RESPONDENT NAME</th>
+                                <th>RESPONDENT TEL. NUMBER.</th>
+                                <th>RESPONDNET EMAIL</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -78,7 +81,10 @@
                                     <td class="txt-oflo">{{$s->answer}} </td>
                                     <td class="txt-oflo">{{$s->uploaded}} </td>
                                     <td class="txt-oflo">{{$s->timestamp}} </td>
-                                    td class="txt-oflo">{{$s->user}} </td>
+                                    <td class="txt-oflo">{{$s->user}} </td>
+                                    <td class="txt-oflo">{{$s->respondent_name}} </td>
+                                    <td class="txt-oflo">{{$s->respondent_tel_number}} </td>
+                                    <td class="txt-oflo">{{$s->respondent_email}} </td>
                                 </tr>
                             @endforeach
                             </tbody>
