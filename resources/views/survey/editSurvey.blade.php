@@ -52,6 +52,17 @@
                             <input type="text" name="timestamp" id="timestamp" class="form-control">
                         </div>
                     </div>
+                    <label for="location">User</label>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <select class="form-control" name = "user" id = "user">
+                                <option value="">---------------</option>
+                                @foreach($users as $key =>$u)
+                                    <option value="{{$u->username}}">{{$u->username}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="modal-footer">

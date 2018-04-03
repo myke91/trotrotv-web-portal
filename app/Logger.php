@@ -4,11 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Question extends Model
+class Logger extends Model
 {
-    protected $table = 'questions';
+    protected $table = 'access_code';
     protected $fillable = [
-        'id','question','type','brand_name'
+        'id','username','code'
     ];
     protected $primaryKey = 'id';
     public $timestamps = true;

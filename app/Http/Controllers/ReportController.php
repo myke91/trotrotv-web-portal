@@ -7,6 +7,7 @@ use App\Report;
 use App\Vehicle;
 use Illuminate\Http\Request;
 use \Log;
+use App\Logger;
 
 class ReportController extends Controller
 {
@@ -14,7 +15,8 @@ class ReportController extends Controller
     {
         $vehicles = Vehicle::all();
         $questions = Question::all();
-        return view('reports.reports', compact('vehicles', 'questions'));
+        $users = Logger::all();
+        return view('reports.reports', compact('vehicles', 'questions','users'));
     }
     public function createReport(Request $request)
     {
@@ -31,7 +33,7 @@ class ReportController extends Controller
 
     public function ReportInformation()
     {
-        return Report::all();
+        return Report::paginate(10);
     }
 
     public function editReport(Request $request)

@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Question;
+use App\Brand;
 
 class QuestionController extends Controller
 {
     public function getQuestions()
     {
-        return view('questions.questions');
+        $brands = Brand::all();
+        return view('questions.questions',compact('brands'));
     }
 
     public function createQuestion(Request $request)

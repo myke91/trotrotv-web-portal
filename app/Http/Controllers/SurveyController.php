@@ -7,6 +7,7 @@ use App\Question;
 use App\Survey;
 use Illuminate\Http\Request;
 use \Log;
+use App\Logger;
 
 class SurveyController extends Controller
 {
@@ -14,7 +15,8 @@ class SurveyController extends Controller
     {
         $brands = Brand::all();
         $questions = Question::all();
-        return view('survey.survey', compact('brands', 'questions'));
+        $users = Logger::all();
+        return view('survey.survey', compact('brands', 'questions','users'));
     }
 
     public function createSurvey(Request $request)
@@ -32,7 +34,7 @@ class SurveyController extends Controller
 
     public function SurveyInformation()
     {
-        return Survey::all();
+        return Survey::paginate(10);
     }
     public function editSurvey(Request $request)
     {

@@ -22,7 +22,9 @@
                                 <th>QUESTION</th>
                                 <th>ANSWER</th>
                                 <th>UPLOADED</th>
+                                <th>COMMENTS</th>
                                 <th>TIMESTAMP</th>
+                                <th>USER</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -32,7 +34,9 @@
                                     <td class="txt-oflo">{{$r->question}} </td>
                                     <td class="txt-oflo">{{$r->answer}} </td>
                                     <td class="txt-oflo">{{$r->uploaded}} </td>
+                                    <td class="txt-oflo">{{$r->comments}} </td>
                                     <td class="txt-oflo">{{$r->timestamp}} </td>
+                                    <td class="txt-oflo">{{$r->user}} </td>
                                 </tr>
                             @endforeach
                             </tbody>
@@ -63,6 +67,7 @@
                                 <th>ANSWER</th>
                                 <th>UPLOADED</th>
                                 <th>TIMESTAMP</th>
+                                <th>USER</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -73,6 +78,7 @@
                                     <td class="txt-oflo">{{$s->answer}} </td>
                                     <td class="txt-oflo">{{$s->uploaded}} </td>
                                     <td class="txt-oflo">{{$s->timestamp}} </td>
+                                    td class="txt-oflo">{{$s->user}} </td>
                                 </tr>
                             @endforeach
                             </tbody>
