@@ -14,9 +14,9 @@ class UsersTableSeeder extends Seeder
     {
         User::create(
             [
-                'name' => 'Fred Ahanogbe',
-                'username' => 'freddie',
-                'email' => 'fred.ahanogbe@gmail.com',
+                'name' => 'TrotroTV Admin',
+                'username' => 'trotrotv',
+                'email' => 'admin@trotro.tv',
                 'password' => 'admin',
                 'remember_token' => str_random(10),
             ]

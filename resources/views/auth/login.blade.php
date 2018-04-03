@@ -31,15 +31,15 @@
 						Login
 					</span>
 
-                <div class="wrap-input100 validate-input m-b-23" data-validate = "Username is reauired">
-                    <span class="label-input100">Username</span>
-                    <input class="input100" type="text" name="username" placeholder="Type your username" autocomplete="off">
+                <div class="wrap-input100 validate-input m-b-23" data-validate = "Email is required">
+                    <span class="label-input100">Email</span>
+                    <input class="input100" type="text" name="email" placeholder="Type your email" autocomplete="off">
                     <span class="focus-input100" data-symbol="&#xf206;"></span>
                 </div>
                 <div>
-                    @if ($errors->has('username'))
+                    @if ($errors->has('email'))
                         <span class="help-block" style="color: red">
-                        <strong>{{ $errors->first('username') }}</strong>
+                        <strong>{{ $errors->first('email') }}</strong>
                     </span>
                     @endif
                 </div>
