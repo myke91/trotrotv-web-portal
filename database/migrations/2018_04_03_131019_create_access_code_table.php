@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateQuestionsTable extends Migration
+class CreateAccessCodeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateQuestionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('questions', function (Blueprint $table) {
+        Schema::create('access_code', function (Blueprint $table) {
             $table->increments('id');
-            $table->String('question');
-            $table->String('type');
-            $table->String('brand_name')->nullable();
+            $table->String('username');
+            $table->String('code');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreateQuestionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('questions');
+        Schema::dropIfExists('access_code');
     }
 }

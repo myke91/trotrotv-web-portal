@@ -18,9 +18,11 @@ class CreateReportTable extends Migration
             $table->increments('id');
             $table->String('vehicle');
             $table->String('question');
-            $table->String('answer');
+            $table->String('answer')->nullable();
             $table->String('uploaded');
+            $table->String('comments')->nullable();
             $table->String('timestamp');
+            $table->String('user');
             $table->timestamps();
         });
     }

@@ -7,6 +7,7 @@ use App\Report;
 use App\Vehicle;
 use Illuminate\Http\Request;
 use \Log;
+use App\Logger;
 
 class ReportController extends Controller
 {
@@ -14,7 +15,8 @@ class ReportController extends Controller
     {
         $vehicles = Vehicle::all();
         $questions = Question::all();
-        return view('reports.reports', compact('vehicles', 'questions'));
+        $users = Logger::all();
+        return view('reports.reports', compact('vehicles', 'questions','users'));
     }
     public function createReport(Request $request)
     {
@@ -31,7 +33,7 @@ class ReportController extends Controller
 
     public function ReportInformation()
     {
-        return Report::all();
+        return Report::paginate(10);
     }
 
     public function editReport(Request $request)
@@ -70,8 +72,10 @@ class ReportController extends Controller
             $report->vehicle = (string) $item['vehicle'];
             $report->question = (string) $item['question'];
             $report->answer = (string) $item['answer'];
+            $report->comments = (string) $item['comments'];
             $report->uploaded = "true";
             $report->timestamp = (string) $item['timestamp'];
+            $report->user = (string) $item['timestamp'];
 
             $report->save();
 
@@ -81,7 +85,9 @@ class ReportController extends Controller
             $fields['question'] = $report->question;
             $fields['answer'] = $report->answer;
             $fields['uploaded'] = $report->uploaded;
+            $fields['comments'] = $report->comments;
             $fields['timestamp'] = $report->timestamp;
+            $fields['user'] = $report->user;
 
             array_push($data, $fields);
 

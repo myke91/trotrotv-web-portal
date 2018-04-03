@@ -2,10 +2,18 @@
         {{ Request::path() }}
     <div id="sidebar"  class="nav-collapse ">
         <ul class="sidebar-menu">
+
             <li class="{{ Request::path() == '/' ? 'active' : '' }}">
                 <a class="" href="/">
                     <i class="icon_house_alt"></i>
                     <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="sub-menu {{ Request::path() == 'users' ? 'active' : '' }}">
+                <a class="" href="{{route('users')}}">
+                    <i class="icon_group"></i>
+                    <span>Users</span>
+
                 </a>
             </li>
             <li class="sub-menu {{ Request::path() == 'stations' ? 'active' : '' }}">
@@ -33,6 +41,13 @@
                 <a class="" href="{{route('questions')}}">
                     <i class="icon_piechart"></i>
                     <span>Questions</span>
+
+                </a>
+            </li>
+            <li class="sub-menu {{ Request::path() == 'answers' ? 'active' : '' }}">
+                <a class="" href="{{route('answers')}}">
+                    <i class="icon_piechart"></i>
+                    <span>Answers</span>
 
                 </a>
             </li>

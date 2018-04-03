@@ -11,6 +11,8 @@
 |
 */
 
+Route::group(['middleware' => 'authen'], function (){
+
 
     Route::get('/',['as'=>'dashboard','uses'=>'DashboardController@Dashboard']);
     Route::get('/stations', ['as' => 'stations', 'uses' => 'StationController@getStations']);
@@ -19,6 +21,8 @@
     Route::get('/survey', ['as' => 'survey', 'uses' => 'SurveyController@getSurvey']);
     Route::get('/reports', ['as' => 'reports', 'uses' => 'ReportController@getReports']);
     Route::get('/vehicles', ['as' => 'vehicles', 'uses' => 'VehicleController@getVehicles']);
+    Route::get('/users', ['as' => 'users', 'uses' => 'UserController@getUsers']);
+    Route::get('/answers', ['as' => 'answers', 'uses' => 'AnswerController@getAnswers']);
 
     Route::get('/stationsInfo', ['as' => 'showStationInfo', 'uses' => 'StationController@showStationInformation']);
     Route::get('/editStation', ['as' => 'editStation', 'uses' => 'StationController@editStations']);
@@ -56,9 +60,21 @@
     Route::post('/updateSurvey', ['as' => 'updateSurvey', 'uses' => 'SurveyController@updateSurvey']);
     Route::post('/deleteSurvey', ['as' => 'deleteSurvey', 'uses' => 'SurveyController@deleteSurvey']);
 
+    Route::get('/loggerInfo', ['as' => 'showLoggerInfo', 'uses' => 'UserController@showLoggerInformation']);
+    Route::get('/editLogger', ['as' => 'editLogger', 'uses' => 'UserController@editLogger']);
+    Route::post('/postLogger', ['as' => 'postLogger', 'uses' => 'UserController@createLogger']);
+    Route::post('/updateLogger', ['as' => 'updateLogger', 'uses' => 'UserController@updateLogger']);
+    Route::post('/deleteLogger', ['as' => 'deleteLogger', 'uses' => 'UserController@deleteLogger']);
+
+    Route::get('/answerInfo', ['as' => 'showAnswerInfo', 'uses' => 'AnswerController@showAnswerInformation']);
+    Route::get('/editAnswer', ['as' => 'editAnswer', 'uses' => 'AnswerController@editAnswer']);
+    Route::post('/postAnswer', ['as' => 'postAnswer', 'uses' => 'AnswerController@createAnswer']);
+    Route::post('/updateAnswer', ['as' => 'updateAnswer', 'uses' => 'AnswerController@updateAnswer']);
+    Route::post('/deleteAnswer', ['as' => 'deleteAnswer', 'uses' => 'AnswerController@deleteAnswer']);
+
 //exports
 Route::get('reports/export',['as'=>'exportReports','uses' =>'DashboardController@exportReports']);
 Route::get('surveys/export',['as'=>'exportSurveys','uses' =>'DashboardController@exportSurvey']);
-
+});
 Auth::routes();
 

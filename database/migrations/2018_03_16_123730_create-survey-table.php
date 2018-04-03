@@ -20,6 +20,7 @@ class CreateSurveyTable extends Migration
             $table->String('answer');
             $table->String('uploaded');
             $table->String('timestamp');
+            $table->String('user');
             $table->timestamps();
         });
     }

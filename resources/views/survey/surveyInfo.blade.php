@@ -6,6 +6,7 @@
         <th>ANSWER</th>
         <th>UPLOADED</th>
         <th>TIMESTAMP</th>
+        <th>USER</th>
         <th colspan="2">Action</th>
     </tr>
     </thead>
@@ -17,6 +18,7 @@
             <td class="txt-oflo">{{$s->answer}} </td>
             <td class="txt-oflo">{{$s->uploaded}} </td>
             <td class="txt-oflo">{{$s->timestamp}} </td>
+            <td class="txt-oflo">{{$s->user}} </td>
             <td class="txt-oflo">
                 <Button value="{{$s->id}}" class="btn btn-danger btn-sm del-survey">Del</Button>
             </td>
@@ -27,3 +29,4 @@
     @endforeach
     </tbody>
 </table>
+{{$surveys->links()}}

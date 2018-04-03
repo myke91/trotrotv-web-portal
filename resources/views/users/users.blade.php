@@ -1,12 +1,12 @@
 @extends('layouts.master')
 @section('content')
-    @include('vehicles.editVehicle')
+    @include('users.editUser')
     <div class="row">
         <div class="col-lg-12">
             <h2 class="page-header"><i class="fa fa-file-text-o"></i>TrotroTv</h2>
             <ol class="breadcrumb">
                 <li><i class="fa fa-home"></i><a href="/">Home</a></li>
-                <li><i class="icon_document_alt"></i>Vehicles</li>
+                <li><i class="icon_group"></i>Users</li>
             </ol>
         </div>
     </div>
@@ -14,41 +14,35 @@
         <div class="col-lg-12">
             <section class="panel panel-default">
                 <header class="panel-heading">
-                    Add Vehicles
+                    Add User
                 </header>
-                <form action="{{route('postVehicle')}}" class="form-horizontal" id="frm-create-vehicle" method="POST">
+                <form action="{{route('postLogger')}}" class="form-horizontal" id="frm-create-logger" method="POST">
                     <div class="panel-body" style="border-bottom: 1px solid #ccc;">
                         <div class="panel-panel-default">
                             <div class="form-group">
                                 <div class="col-sm-12">
-                                    <label for="station-name">Vehicle Name</label>
+                                    <label for="station-name">Username</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" name = "vehicle" id = "vehicle" required>
+                                        <input type="text" class="form-control" name = "username" id = "username" required>
 
                                     </div>
                                 </div>
                                 <div class="col-sm-12">
-                                    <label for="location">Station</label>
+                                    <label for="location">Access Code</label>
                                     <div class="input-group">
-                                        <select class="form-control" name = "station" id = "station" required>
-                                            <option value="">---------------</option>
-                                            @foreach($stations as $key =>$y)
-                                                <option value="{{$y->station_name}}">{{$y->station_name}}</option>
-                                            @endforeach
-                                        </select>
+                                        <input type="text" class="form-control" name = "code" id = "code" required>
 
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                     <div class="panel-footer">
-                        <button type="submit" class="btn btn-default ">Create Vehicle</button>
+                        <button type="submit" class="btn btn-default ">Create User</button>
                     </div>
                 </form>
                 <div class="panel panel-default">
-                    <div class="panel-heading">Vehicle Information</div>
+                    <div class="panel-heading">Users Information</div>
                     <div class="panel-body" id="add-class-info">
                     </div>
                 </div>
@@ -59,15 +53,16 @@
 @endsection
 @section('script')
     <script type="text/javascript">
-        showVehicleInfo();
-        $('#frm-create-vehicle').on('submit', function (e) {
+        // alert("Hello! I am an alert box!!");
+        showLoggerInfo();
+        $('#frm-create-logger').on('submit', function (e) {
             e.preventDefault();
             var data = $(this).serialize();
             var url = $(this).attr('action');
             $.post(url, data,function (data) {
-                showVehicleInfo(data.vehicle);
+                showLoggerInfo(data.username);
                 swal('Trotro TV',
-                    'Vehicle '+data.vehicle+' saved successfully',
+                    'User '+data.username+' saved successfully',
                     'success');
 
             }).fail(function (data) {
@@ -85,33 +80,33 @@
             });
             $(this).trigger('reset');
         });
-        function showVehicleInfo()
+        function showLoggerInfo()
         {
-            var data = $('#frm-create-vehicle').serialize();
+            var data = $('#frm-create-logger').serialize();
             console.log(data);
-            $.get("{{route('showVehicleInfo')}}", data, function (data) {
+            $.get("{{route('showLoggerInfo')}}", data, function (data) {
                 $('#add-class-info').empty().append(data);
             });
         }
-        $(document).on('click', '.vehicle-edit', function (e) {
-            $('#vehicle-show').modal('show');
+        $(document).on('click', '.logger-edit', function (e) {
+            $('#logger-show').modal('show');
             var id = $(this).val();
-            $.get("{{route('editVehicle')}}", {id:id}, function (data) {
+            $.get("{{route('editLogger')}}", {id:id}, function (data) {
                 console.log(data)
 
-                $('#vehicle_id_edit').val(data.id);
-                $('#vehicle-name-edit').val(data.vehicle);
-                $('#station_name_edit').val(data.station);
+                $('#logger_id_edit').val(data.id);
+                $('#username_edit').val(data.username);
+                $('#access_code_edit').val(data.code);
             });
         });
-        $('.btn-update-vehicle').on('click', function (e) {
+        $('.btn-update-logger').on('click', function (e) {
             e.preventDefault();
-            var data = $('#frm-update-vehicle').serialize();
-            $.post("{{route('updateVehicle')}}", data, function (data) {
-                showVehicleInfo(data.vehicle);
-                $('#vehicle-show').modal('hide');
+            var data = $('#frm-update-logger').serialize();
+            $.post("{{route('updateLogger')}}", data, function (data) {
+                showLoggerInfo(data.username);
+                $('#logger-show').modal('hide');
                 swal('Trotro TV',
-                    'Station '+data.vehicle+' updated successfully',
+                    'User '+data.username+' updated successfully',
                     'success');
 
             }).fail(function (data) {
@@ -128,12 +123,12 @@
                     'error');
             });
         })
-        $(document).on('click', '.del-vehicle', function (e) {
+        $(document).on('click', '.del-logger', function (e) {
             var id = $(this).val();
-            $.post("{{route('deleteVehicle')}}", {id: id}, function (data) {
-                showVehicleInfo(data.vehicle);
+            $.post("{{route('deleteLogger')}}", {id: id}, function (data) {
+                showLoggerInfo(data.username);
                 swal('Trotro TV',
-                    'Selected Vehicle deleted successfully',
+                    'Selected User  deleted successfully',
                     'success');
 
             }).fail(function (data) {

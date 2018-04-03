@@ -25,6 +25,18 @@
                             </select>
                         </div>
                     </div>
+                    <br>
+                    <label for="location">Brand Name</label>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <select class="form-control" name = "brand_name" id = "brand_name_edit">
+                                <option value="">---------------</option>
+                                @foreach($brands as $key =>$b)
+                                    <option value="{{$b->brand_name}}">{{$b->brand_name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="modal-footer">

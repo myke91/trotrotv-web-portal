@@ -14,7 +14,7 @@
         <div class="col-lg-12">
             <section class="panel panel-default">
                 <header class="panel-heading">
-                    Add Station
+                    Add Question
                 </header>
                 <form action="{{route('postQuestion')}}" class="form-horizontal" id="frm-create-question" method="POST">
                     <div class="panel-body" style="border-bottom: 1px solid #ccc;">
@@ -30,10 +30,21 @@
                                 <div class="col-sm-12">
                                     <label for="location">Type</label>
                                     <div class="input-group">
-                                        <select class="form-control" name = "type" id = "type" required>
+                                        <select class="form-control type" name = "type"  required>
                                             <option value="">---------------</option>
                                             <option value="REPORT">REPORT</option>
                                             <option value="SURVEY">SURVEY</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <label for="location">Brand_name</label>
+                                    <div class="input-group">
+                                        <select class="form-control" name = "brand_name" id = "brand_name">
+                                            <option value="">-------------</option>
+                                            @foreach($brands as $key =>$b)
+                                                <option value="{{$b->brand_name}}">{{$b->brand_name}}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
@@ -101,6 +112,7 @@
                 $('#question_id_edit').val(data.id);
                 $('#question-edit').val(data.question);
                 $('#type_edit').val(data.type);
+                $('#brand_name_edit').val(data.brand_name);
             });
         });
         $('.btn-update-question').on('click', function (e) {
@@ -149,5 +161,8 @@
                     'error');
             })
         })
+        $(document).on('change', '.type', function (e) {
+            $('#tarrif-name').html($('<option>').text('CHOOSE TARRIF'));
+            })
     </script>
 @endsection

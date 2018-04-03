@@ -3,6 +3,7 @@
     <tr>
         <th>Question</th>
         <th>Type</th>
+        <th>Brand Name</th>
         <th colspan="2">Action</th>
     </tr>
     </thead>
@@ -11,6 +12,7 @@
         <tr>
             <td>{{$s->question}}</td>
             <td class="txt-oflo">{{$s->type}} </td>
+            <td class="txt-oflo">{{$s->brand_name}} </td>
             <td class="txt-oflo">
                 <Button value="{{$s->id}}" class="btn btn-danger btn-sm del-question">Del</Button>
             </td>

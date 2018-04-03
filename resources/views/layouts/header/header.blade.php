@@ -7,7 +7,7 @@
         <span style="color: #EC2028">Tro</span><span style="color: #000000">tro.</span><span style="color: #EC2028">TV</span>
     </a>
 
-    {{--  <div class="nav search-row" id="top_menu">
+      <div class="nav search-row" id="top_menu">
         <ul class="nav top-menu">
             <li>
                 <form class="navbar-form">
@@ -16,9 +16,9 @@
             </li>
         </ul>
 
-    </div>  --}}
+    </div>
 
-    {{--  <div class="top-nav notification-row">
+      <div class="top-nav notification-row">
         <ul class="nav pull-right top-menu">
             <li class="dropdown">
                 <a data-toggle="dropdown" class="dropdown-toggle" href="#">
@@ -51,5 +51,5 @@
 
         </ul>
 
-    </div>  --}}
+    </div>
 </header>
