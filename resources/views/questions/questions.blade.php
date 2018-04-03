@@ -30,7 +30,7 @@
                                 <div class="col-sm-12">
                                     <label for="location">Type</label>
                                     <div class="input-group">
-                                        <select class="form-control" name = "type" id = "type" required>
+                                        <select class="form-control type" name = "type"  required>
                                             <option value="">---------------</option>
                                             <option value="REPORT">REPORT</option>
                                             <option value="SURVEY">SURVEY</option>
@@ -161,5 +161,8 @@
                     'error');
             })
         })
+        $(document).on('change', '.type', function (e) {
+            $('#tarrif-name').html($('<option>').text('CHOOSE TARRIF'));
+            })
     </script>
 @endsection
