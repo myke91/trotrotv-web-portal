@@ -72,8 +72,10 @@ class ReportController extends Controller
             $report->vehicle = (string) $item['vehicle'];
             $report->question = (string) $item['question'];
             $report->answer = (string) $item['answer'];
+            $report->comments = (string) $item['comments'];
             $report->uploaded = "true";
             $report->timestamp = (string) $item['timestamp'];
+            $report->user = (string) $item['timestamp'];
 
             $report->save();
 
@@ -83,7 +85,9 @@ class ReportController extends Controller
             $fields['question'] = $report->question;
             $fields['answer'] = $report->answer;
             $fields['uploaded'] = $report->uploaded;
+            $fields['comments'] = $report->comments;
             $fields['timestamp'] = $report->timestamp;
+            $fields['user'] = $report->user;
 
             
             array_push($data, $fields);

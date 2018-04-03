@@ -74,6 +74,7 @@ class SurveyController extends Controller
             $survey->answer = (string) $item['answer'];
             $survey->uploaded = "true";
             $survey->timestamp = (string) $item['timestamp'];
+            $survey->user = (string) $item['user'];
 
             $survey->save();
 
@@ -84,6 +85,7 @@ class SurveyController extends Controller
             $fields['answer'] = $survey->answer;
             $fields['uploaded'] = $survey->uploaded;
             $fields['timestamp'] = $survey->timestamp;
+            $fields['user'] = $survey->user;
 
             array_push($data, $fields);
 
