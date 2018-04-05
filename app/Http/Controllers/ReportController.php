@@ -75,7 +75,7 @@ class ReportController extends Controller
             $report->comments = (string) $item['comments'];
             $report->uploaded = "true";
             $report->timestamp = (string) $item['timestamp'];
-            $report->user = (string) $item['timestamp'];
+            $report->user = (string) $item['user'];
 
             $report->save();
 
