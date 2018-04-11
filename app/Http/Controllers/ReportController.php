@@ -16,7 +16,8 @@ class ReportController extends Controller
         $vehicles = Vehicle::all();
         $questions = Question::all();
         $users = Logger::all();
-        return view('reports.reports', compact('vehicles', 'questions','users'));
+        $reports = Report::paginate(10);
+        return view('reports.reports', compact('vehicles', 'questions','users','reports'));
     }
     public function createReport(Request $request)
     {

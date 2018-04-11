@@ -30,6 +30,21 @@ $factory->define(App\Report::class, function (Faker $faker) {
         'answer' => $faker->boolean(),
         'uploaded' => $faker->boolean(),
         'timestamp' => $faker->dateTime(),
+        'user'=>$faker->word,
+
+    ];
+});
+$factory->define(App\Survey::class, function (Faker $faker) {
+    return [
+        'brand' => $faker->word,
+        'question' => $faker->sentence(),
+        'answer' => $faker->word(),
+        'uploaded' => $faker->boolean(),
+        'timestamp' => $faker->dateTime(),
+        'user'=>$faker->word,
+        'respondent_name'=>$faker->word,
+        'respondent_tel_number'=>$faker->word,
+        'respondent_email'=>$faker->word,
 
     ];
 });

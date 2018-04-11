@@ -16,7 +16,8 @@ class SurveyController extends Controller
         $brands = Brand::all();
         $questions = Question::all();
         $users = Logger::all();
-        return view('survey.survey', compact('brands', 'questions','users'));
+        $surveys = Survey::paginate(10);
+        return view('survey.survey', compact('brands', 'questions','users','surveys'));
     }
 
     public function createSurvey(Request $request)

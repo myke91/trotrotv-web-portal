@@ -29,6 +29,6 @@
             </td>
         </tr>
     @endforeach
+
     </tbody>
 </table>
-{{$reports->links()}}

@@ -35,4 +35,3 @@
     @endforeach
     </tbody>
 </table>
-{{$surveys->links()}}

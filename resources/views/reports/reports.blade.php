@@ -16,6 +16,40 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Report Information</div>
                     <div class="panel-body" id="add-class-info">
+                        <table class="table" id="investTable">
+                            <thead>
+                            <tr>
+                                <th>VEHICLE NAME</th>
+                                <th>QUESTION</th>
+                                <th>ANSWER</th>
+                                <th>UPLOADED</th>
+                                <th>COMMENTS</th>
+                                <th>TIMESTAMP</th>
+                                <th>USER</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($reports as $key => $r)
+                                <tr>
+                                    <td>{{$r->vehicle}}</td>
+                                    <td class="txt-oflo">{{$r->question}} </td>
+                                    <td class="txt-oflo">{{$r->answer}} </td>
+                                    <td class="txt-oflo">{{$r->uploaded}} </td>
+                                    <td class="txt-oflo">{{$r->comments}} </td>
+                                    <td class="txt-oflo">{{$r->timestamp}} </td>
+                                    <td class="txt-oflo">{{$r->user}} </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-body" id="add-report-links">
+                        {{$reports->links()}}
+                        <form action="{{route('exportReports')}}" enctype="multipart/form-data">
+                            <button class="btn btn-success" type="submit">Export Report</button>
+                        </form>
                     </div>
                 </div>
             </section>
