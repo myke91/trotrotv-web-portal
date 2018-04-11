@@ -11,7 +11,7 @@
                     <label for="brand-name">Brand name</label>
                     <div class="row">
                         <div class="col-sm-12">
-                            <select class="form-control" name = "brand_name" id = "brand_name">
+                            <select class="form-control" name = "brand" id = "brand_name">
                                 <option value="">---------------</option>
                                 @foreach($brands as $key =>$y)
                                     <option value="{{$y->brand_name}}">{{$y->brand_name}}</option>
