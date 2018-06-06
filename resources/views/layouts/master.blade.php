@@ -16,7 +16,6 @@
     {!! Html::style('css/elegant-icons-style.css') !!}
     {!! Html::style('css/font-awesome.min.css') !!}
     {!! Html::style('assets/fullcalendar/fullcalendar/bootstrap-fullcalendar.css') !!}
-
     {!! Html::style('assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css') !!}
     {!! Html::style('css/owl.carousel.css') !!}
     {!! Html::style('css/jquery-jvectormap-1.2.2.css') !!}
@@ -75,25 +74,14 @@
 @yield('script')
 
 <script>
-    $(document).ready(function(){
+    $(document).ready(function() {
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-    });
 
-    //knob
-    $(function() {
-        $(".knob").knob({
-            'draw' : function () {
-                $(this.i).val(this.cv + '%')
-            }
-        })
-    });
-
-    //carousel
-    $(document).ready(function() {
+        //carousel
         $("#owl-slider").owlCarousel({
             navigation : true,
             slideSpeed : 300,
@@ -101,10 +89,24 @@
             singleItem : true
 
         });
+        $(function(){
+            $('.input-group.date input').datepicker({
+            format: "dd.mm.yyyy"
+            });
+        });
     });
 
-    //custom select box
+   //knob
+   $(function() {
+        $(".knob").knob({
+            'draw' : function () {
+                $(this.i).val(this.cv + '%')
+            }
+        })
+    });
+    
 
+    //custom select box
     $(function(){
         $('select.styled').customSelect();
     });
